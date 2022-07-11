@@ -10,7 +10,7 @@ This folder contains:
 -data:contains the example dataset.
 -Feature_Selection_Uncertian: the program of UOS2FS Part2.
 -LF_Model: the program of the UOS2FS Part1.
--Masked.py: to simulate datasets with missing values
+-Masked.py: to simulate datasets with missing values.
 -uos2fs.py: performed the UOS2FS to the given sparse dataset.
 
 Note:
