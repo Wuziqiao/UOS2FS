@@ -1,5 +1,6 @@
 #UOS2FS
-Code for the article:
+
+Code for the article: Uncertainty-Aware Online Sparse Streaming Feature Selection.
 
 Implemented in Python 3.7, Matlab 2020b
 
