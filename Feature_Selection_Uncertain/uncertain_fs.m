@@ -1,26 +1,6 @@
 function   [selected_features,time]=uncertain_fs(data1,class_index)
 
 
-%for continouous data
-
-%input parameter:
-
-%data1: data with all features including the class attribute.
-%the class attribute in data matrix has to take consecutive integer values starting from 0 for classification. 
-%target: the index of the class attribute (we assume the class attribute is the last colomn of data1)
-%alpha: significant level( 0.01 or 0.05 )
-%for example: The UCI dataset wdbc with 569 instances and 31 features (the index of the class attribute is 31).
-
-% [selected_features1,time]=fast_osfs_z(wdbc,31,0.01)
-
-%output: 
-%selected_features1: the selected features
-%time: running time
-
-%please refer to the following papers for the details and cite them:
-%Wu, Xindong, Kui Yu, Wei Ding, Hao Wang, and Xingquan Zhu. "Online feature selection with streaming features." Pattern Analysis and Machine Intelligence, IEEE Transactions on 35, no. 5 (2013): 1178-1192.
-
-
 start=tic;
 
 [n,p]=size(data1);
@@ -34,14 +14,6 @@ mode = zeros(1,p-1);
 Y = data1(:,p);
 
  for i=1:p-1%the last feature is the class attribute, i.e., the target)
- %      alpha = unifrnd (0.01,0.1);  %产生均匀分布的一个概率
-      
-%       x = unifrnd(-2.1459,2.1459);  %高斯分布0.01-0.1
-%       alpha = alpha_product(x)/10;
-      
-%       x = unifrnd(-1.794,1.794);  %高斯分布0.01-0.05
-%       alpha = alpha_product(x)/20;
-      
       
       %梯形
       x = unifrnd(0,1);
@@ -100,24 +72,7 @@ Y = data1(:,p);
 selected_features=selected_features1;
  end
  len1 = length(selected_features);
-%  sf_new = [selected_features,sf_dep];
-%  sf_new1 = sf_new;
-%  len1 = length(selected_features);
-%  len2 = length(sf_new);
-%  for t = len1+1:len2
-%      a = setdiff(sf_new1,sf_new(t),'stable');
-%      if ~isempty(b)
-%          [CI,dep]=optimal_compter_dep_2(a,sf_new(t),class_index,3, 0, 0.1, 'z',data1);
-%          if CI==1 || isnan(dep)
-%              sf_new1 = a;
-%          end
-%      end
-%  end
-%  sf_new = sf_new1(len1+1:end);
-%  len3 = length(sf_new);
-%  for t2 = 1:len3
-%      depArray(1,t2) = dep_an(data1(:,t2),Y);
-%  end
+
      
   [max_dep,max_part] = sort(depArray,'descend');
   k = ceil(0.5*len1);
