@@ -16,7 +16,7 @@ This folder contains:
 
 -Masked.py: to simulate datasets with missing values.
 
--uos2fs.py: performed the UOS2FS to the given sparse dataset.
+-uos2fs.py: performed UOS2FS to get the selected results for a given sparse dataset.
 
 
 
